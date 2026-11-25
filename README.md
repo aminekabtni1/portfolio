@@ -1,29 +1,32 @@
-# Blue Grid Portfolio (React + Vite)
+# Portfolio (React + Vite)
 
-A customizable portfolio inspired by the supplied blue-gradient grid reference. Includes your uploaded transparent portrait in `public/portrait.png`.
+## Development
 
-## Run locally
+Use Node.js 22. Run `npm ci`, then `npm run dev`. Vite defaults to
+`/portfolio/`; follow the URL printed by Vite. Build with `npm run build`
+and inspect the output with `npm run preview`.
 
-1. Install Node.js 20+.
-2. Open this folder in VS Code.
-3. Run `npm install` then `npm run dev`.
-4. Visit the localhost URL printed by Vite.
+## GitHub Pages deployment
 
-## Personalize
+`.github/workflows/deploy.yml` runs on pushes to main and manual dispatch.
+It runs npm ci, builds, uploads dist, and deploys to GitHub Pages.
+Select GitHub Actions in repository Settings > Pages > Build and deployment.
+The project URL is https://aminekabtni1.github.io/portfolio/.
 
-Edit `PROFILE` and `PROJECTS` in `src/main.jsx`.
-- Replace `your-email@example.com` with your address.
-- Add your LinkedIn URL.
-- Add `public/resume.pdf` and update `resume: '/resume.pdf'`.
-- Change the title and description in `index.html`.
-- Replace `/public/portrait.png` to use a different photo.
+The workflow uses configure-pages base_path: /portfolio/ for the repository
+URL, or / once a custom domain is configured. For a future .me domain,
+configure DNS and the custom domain in Settings > Pages, enable HTTPS when
+available, then rerun deployment. No unknown domain is committed as CNAME.
 
-Project cards are sample descriptions based on topics you've discussed; revise them before publishing to accurately reflect your completed work.
+To test a domain-root build in PowerShell:
 
-## Deploy on Vercel
+```powershell
+$env:VITE_BASE_PATH = '/'
+npm run build
+Remove-Item Env:VITE_BASE_PATH
+```
 
-Push the folder to GitHub, import it into Vercel, keep Vite defaults, and deploy. Build command: `npm run build`; output directory: `dist`.
-
-## Portrait video
-
-The reference uses a cutout image. This implementation uses your supplied PNG. To use a looping video, replace the image element with a `<video autoPlay muted loop playsInline ...>` element. An ordinary MP4 with a solid background will not have the same transparent-cutout look; transparency requires a compatible alpha-video format or a separately implemented background-removal effect.
+Asset references use src/assetUrl.js and import.meta.env.BASE_URL.
+Original images and CV remain in public/, certificates in public/certificates,
+and application screenshots in public/previews. Fragment navigation needs no
+server rewrite. node_modules and dist are generated locally and ignored by Git.
