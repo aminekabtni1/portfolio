@@ -1,0 +1,34 @@
+.cs-certifications .cert-subtitle{margin:30px 0 20px}
+.cert-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:38px}
+.cert-gallery>.cs-reveal{min-width:0;height:100%}
+.cert-card{height:100%;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.75);border-radius:18px;background:linear-gradient(145deg,#ffffff65,#ffffff20);box-shadow:inset 0 1px 0 #ffffffc0;transition:background-color .25s,border-color .25s}
+.cert-card:hover{background-color:#ffffff30;border-color:white}
+.cert-image-button{display:block;width:100%;padding:12px;border:0;background:transparent;border-radius:18px;cursor:zoom-in}
+.cert-image-button img{display:block;width:100%;height:auto;aspect-ratio:1487/1925;object-fit:contain;background:white;border-radius:8px}
+.cert-details{display:flex;flex-direction:column;flex:1;padding:10px 20px 23px}
+.cert-issuer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:#506780;font-size:10px;margin:0 0 15px;line-height:1.6}
+.cert-issuer time{font-size:9px}
+.cert-details h3{font-size:clamp(18px,1.7vw,24px);line-height:1.3;font-weight:500;letter-spacing:-.025em;margin:0 0 24px;color:var(--cs-navy)}
+.cert-open{display:flex;align-items:center;gap:10px;align-self:start;margin-top:auto;padding:0;background:none;border:0;font:inherit;font-size:11px;color:var(--cs-blue);cursor:pointer}
+.cert-card button:focus-visible{outline:3px solid #2468d7;outline-offset:4px}
+.cert-viewer{position:fixed;inset:0;width:min(1200px,96vw);height:94dvh;max-width:none;max-height:none;padding:0;border:1px solid #ffffff70;border-radius:22px;background:#e9f0f6f5;color:#163456;box-shadow:0 20px 70px #10283d30;animation:cert-open .2s ease;overflow:hidden}
+.cert-viewer::backdrop{background:#132c46a6;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.cert-viewer.is-closing{animation:cert-close .18s ease forwards}
+.cert-viewer-shell{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+.cert-viewer-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 20px;border-bottom:1px solid #ffffffa0}
+.cert-viewer-bar span{font-size:10px;letter-spacing:.08em;color:#506780}
+.cert-viewer-bar h3{font-size:16px;font-weight:500;line-height:1.4;margin:5px 0 0}
+.cert-viewer button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;background:#ffffff60;border:1px solid #ffffffa0;border-radius:50%;color:#163456;cursor:pointer;flex-shrink:0}
+.cert-viewer button:disabled{opacity:.35;cursor:default}
+.cert-viewer button:focus-visible{outline:3px solid #2468d7;outline-offset:2px}
+.cert-viewer-stage{overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom}
+.cert-zoom-canvas{min-height:100%;display:flex;align-items:center;justify-content:center;padding:14px;box-sizing:border-box}
+.cert-zoom-canvas img{display:block;width:100%;height:100%;object-fit:contain;flex-shrink:0;max-width:none;max-height:none}
+.cert-viewer-controls{background:rgba(240,246,251,.85);display:flex;justify-content:center;align-items:center;gap:24px;padding:10px;border-top:1px solid #ffffffa0}
+.cert-zoom-controls{display:flex;gap:8px;align-items:center}
+.cert-zoom-controls button:nth-child(2){font:inherit;font-size:11px;min-width:60px;border-radius:99px}
+@keyframes cert-open{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes cert-close{to{opacity:0;transform:translateY(8px)}}
+@media(max-width:1100px){.cert-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.cert-gallery>.cs-reveal:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 12px);justify-self:center}}
+@media(max-width:600px){.cert-gallery{grid-template-columns:1fr;gap:24px}.cert-gallery>.cs-reveal:last-child:nth-child(odd){grid-column:auto;width:100%}.cert-details h3{font-size:23px}.cert-viewer{width:96vw;height:96dvh;border-radius:16px}.cert-viewer-bar{padding:10px 12px;gap:10px}.cert-viewer-bar h3{font-size:13px}.cert-viewer-controls{gap:14px}}
+@media(prefers-reduced-motion:reduce){.cert-card{transition:none}.cert-viewer,.cert-viewer.is-closing{animation:none}}

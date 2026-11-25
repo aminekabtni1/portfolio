@@ -1,0 +1,59 @@
+/* Desktop screens share the hero's outer frame allowance. Content can grow at
+   short heights and tablet widths; no section clips or scrolls internally. */
+.cs-content .cert-details :is(h3,.cert-issuer,.cert-open){color:#fff}
+@media(min-width:1101px) and (min-height:700px){
+  .cs-content{--screen-space:calc(100dvh - 2 * var(--outer));--screen-pad:clamp(24px,4dvh,44px);--cs-heading:clamp(34px,4.8dvh,52px)}
+  .cs-content>.cs-section,.cs-content>.cs-contact{min-height:var(--screen-space);padding-block:var(--screen-pad);scroll-margin-top:var(--outer)}
+  .cs-story,.cs-path{align-content:center;align-items:center}
+  .cs-story .cs-heading{max-width:900px}
+  .cs-story-paragraphs{margin-top:clamp(20px,3dvh,32px)}
+  .cs-interest-line{margin-top:clamp(18px,3dvh,30px);padding-top:18px}
+  .cs-path-intro{position:relative;top:auto;align-self:center}
+  .cs-path-intro .cs-heading{margin:25px 0 18px}
+  .cs-progression>li{padding-bottom:clamp(16px,2.8dvh,30px)}
+  .cs-step-marker{gap:14px}
+  .cs-step-content h3{font-size:clamp(28px,3.6dvh,38px);margin-bottom:10px}
+  .cs-step-content .cs-copy{line-height:1.65}
+  .cs-step-tags{margin-top:12px;padding-bottom:16px;gap:6px 10px}
+  .cs-step-content .cs-overline{margin-bottom:8px}
+  .cs-works{display:flex;flex-direction:column;justify-content:center}
+  .cs-works-heading{margin-bottom:clamp(16px,2.5dvh,26px);gap:24px}
+  .cs-works-heading .cs-label{margin-bottom:16px}
+  .cs-project-grid{gap:clamp(14px,2dvh,22px)}
+  .cs-featured .cs-work{padding:12px 20px 12px 12px;gap:24px;grid-template-columns:1.35fr 1fr}
+  .cs-featured .cs-work-info{padding:0}
+  .cs-work h3{font-size:clamp(22px,2.8dvh,30px);margin:9px 0}
+  .cs-work-info .cs-copy{font-size:12px;line-height:1.55}
+  .cs-work-meta{font-size:8px;line-height:1.4}
+  .cs-work-tags{gap:5px;margin-top:12px}
+  .cs-work-tags span{font-size:8px;padding:4px 8px}
+  .cs-project-links{margin-top:10px}
+  .cs-featured .lp-shell{height:clamp(190px,25dvh,270px)}
+  .cs-leadership{display:flex;flex-direction:column;justify-content:center}
+  .cs-leadership-layout{margin-top:clamp(25px,4dvh,40px);align-items:center}
+  .cs-leadership .cs-heading{font-size:var(--cs-heading)}
+  .cs-certifications{display:flex;flex-direction:column;justify-content:center}
+  .cs-certifications .cert-subtitle{margin:20px 0 14px}
+  .cert-gallery{margin-top:clamp(20px,3dvh,32px);gap:24px}
+  .cert-image-button img{height:clamp(190px,31dvh,335px);width:100%;aspect-ratio:auto;object-fit:contain;background:transparent}
+  .cert-details{padding:8px 18px 18px}
+  .cert-details h3{font-size:clamp(18px,2.4dvh,25px);margin-bottom:18px}
+  .cert-issuer{margin-bottom:10px}
+  .cert-gallery:has(>.cs-reveal:nth-child(4)){grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/3);overflow-x:auto;scroll-padding:1px;padding:2px}
+  .cs-content>.cs-contact{display:flex;flex-direction:column;justify-content:center}
+  .cs-contact-main{margin:clamp(24px,5dvh,55px) 0;gap:40px}
+  .cs-content .cs-contact h2{font-size:clamp(52px,9dvh,92px)}
+  .cs-footer-line{padding-top:20px}
+}
+@media(min-width:1101px) and (min-height:700px) and (max-height:800px){
+  .cs-content{--screen-pad:24px}
+  .cs-step{grid-template-columns:45px minmax(0,1fr);gap:16px}
+  .cs-step-content .cs-copy{font-size:12px}
+  .cs-step-marker>span{font-size:36px}
+  .cs-lead{font-size:18px;line-height:1.6}
+  .cs-work-tags{margin-top:8px}
+  .cs-work h3{font-size:22px}
+}
+@media(max-width:1100px),(max-height:699px){
+  .cert-image-button img{height:auto;max-height:340px;object-fit:contain;background:transparent}
+}
